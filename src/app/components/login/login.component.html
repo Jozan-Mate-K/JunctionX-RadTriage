@@ -1,0 +1,9 @@
+<p>login works!</p>
+<mat-form-field>
+    <input type="text" matInput [formControl]="control.username" placeholder="Név">
+    
+</mat-form-field>
+<mat-form-field>
+    <input type="password" matInput [formControl]="control.password" matInput placeholder="Jelszó">
+</mat-form-field>
+<button mat-raised-button (click)="login()">Login</button>
