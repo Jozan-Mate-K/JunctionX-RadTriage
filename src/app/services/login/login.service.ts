@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { EnvironmentService } from '../environment/environment.service';
+import { environment } from '../environment/environment.service';
 
 
 @Injectable({providedIn: 'root'})
 export class LoginService {
-    URL: string = "";
+    readonly URL = environment.backendURL + "/login";
     loggedIn: boolean = false;
 
-    constructor(private http: HttpClient,
-        private environmentService: EnvironmentService) { 
-            this.URL = environmentService.backendURL + "/login";
-    }
+    constructor(private http: HttpClient) {}
 
     login(username: string, password: string ){
         this.http.post<ResponseDto<string>>(this.URL,{
