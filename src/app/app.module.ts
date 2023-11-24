@@ -27,7 +27,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppComponent,
     LayoutComponent,
     LoginComponent,
-    ProgressDialogComponent
+    ProgressDialogComponent,
   ],
   imports: [
     BrowserModule,

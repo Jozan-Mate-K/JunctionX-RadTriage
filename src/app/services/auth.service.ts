@@ -9,6 +9,10 @@ export class AuthService{
         this.Token = token;
     }
 
+    getIsLoggedIn(): boolean{
+        return this.Token != undefined;
+    }
+
     getX(){
         //TODO: Token query
     }
