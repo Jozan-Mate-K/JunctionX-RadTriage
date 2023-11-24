@@ -1,5 +1,7 @@
-<mat-spinner *ngIf="!message; else Message"></mat-spinner>
-<ng-template #Message>
-    <h2>{{message}}</h2>
-    <button mat-raised-button mat-dialog-close=""> Close</button>
-</ng-template>
+<div class="container">
+    <mat-spinner *ngIf="!message; else Message"></mat-spinner>
+    <ng-template #Message>
+        <h2>{{message}}</h2>
+        <button color="primary" mat-raised-button mat-dialog-close=""> Close</button>
+    </ng-template>
+</div>

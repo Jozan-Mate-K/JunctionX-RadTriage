@@ -4,7 +4,6 @@ import { environment } from './environment';
 import { AuthService } from './auth.service';
 
 import { LoginDTO } from '../dto/login.dto';
-import { MatDialog } from '@angular/material/dialog';
 import { ProgressDialogService } from './progress-dialog.service';
 
 @Injectable({providedIn: 'root'})
@@ -16,7 +15,7 @@ export class LoginService {
         private dialogService: ProgressDialogService) {}
 
     login(username: string, password: string ){
-        this.dialogService.openDialog({maxHeight: '300px', maxWidth: "300px"});
+        this.dialogService.openDialog({ minWidth: "400px", disableClose: true});
         this.http.post<ResponseDto<LoginDTO>>(this.URL,{
             username: username,
             password: password
