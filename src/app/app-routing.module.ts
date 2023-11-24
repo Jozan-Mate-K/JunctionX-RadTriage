@@ -6,7 +6,7 @@ import { UserGuard } from './guards/User.guard';
 const routes: Routes = [
   {path: "", redirectTo: "login", pathMatch: 'full'},
   {path: "login", component: LoginComponent},
-  {path: "user", canActivate: [UserGuard]}
+  {path: "user", canActivate: [UserGuard], redirectTo: "login"}
 ]
 
 @NgModule({
