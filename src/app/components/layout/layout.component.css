@@ -10,6 +10,10 @@
   background: inherit;
 }
 
+.mat-toolbar{
+  height: fit-content;
+}
+
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
@@ -18,4 +22,16 @@
 
 .hidden{
   display: none;
+}
+
+
+.headerContainer{
+  display: grid;
+  gap: 2%;
+  margin: 0.1em;
+  width: 50%;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.headerContainer span{
+  grid-column: span 3;
 }

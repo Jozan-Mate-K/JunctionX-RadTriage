@@ -21,12 +21,12 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>JunctionXFrontend</span>
-      <div *ngIf="!(isHandset$ | async)">
-        <button mat-raised-button routerLink="/login">Login</button>
-        <button mat-raised-button routerLink="/">Link 2</button>
-        <button mat-raised-button routerLink="/">Link 3</button>
-
+      <div class="headerContainer">
+        <span>JunctionXFrontend</span>
+        <button *ngIf="!(isHandset$ | async)" mat-raised-button routerLink="/login">Login</button>
+        <button *ngIf="!(isHandset$ | async)" mat-raised-button routerLink="/">Link 2</button>
+        <button *ngIf="!(isHandset$ | async)" mat-raised-button routerLink="/">Link 3</button>
+  
       </div>
     </mat-toolbar>
 

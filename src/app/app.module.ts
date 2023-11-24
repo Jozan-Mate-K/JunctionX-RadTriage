@@ -15,6 +15,10 @@ import {MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { ProgressDialogComponent } from './dialogs/progress-dialog/progress-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 
@@ -22,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     LayoutComponent,
-    LoginComponent
+    LoginComponent,
+    ProgressDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -32,10 +37,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatInputModule,
     MatFormFieldModule,
+    MatDialogModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
+    MatProgressSpinnerModule,
     MatListModule
   ],
   providers: [],

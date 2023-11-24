@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormControlDirective } from '@angular/forms';
-import { LoginService } from 'src/app/services/login/login.service';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -19,9 +19,7 @@ export class LoginComponent {
   }
 
   login(){
-    if(this.loginService.login(this.control.username.value, this.control.password.value )){
-      
-    }
+    this.loginService.login(this.control.username.value, this.control.password.value);
   }
 
 }
