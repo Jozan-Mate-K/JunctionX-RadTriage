@@ -28,7 +28,7 @@ export class LoginService {
             console.log(n.result.data)
             if(!!n.result.token){
                 this.authService.add(n.result.token);
-                this.router.navigate(['user'], {relativeTo:this.route});
+                this.router.navigate(['user/']);
             }else{
             }
         },
