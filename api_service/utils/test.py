@@ -88,18 +88,12 @@ if __name__ == "__main__":
         Machine(5, "TrueBeam", ['large organ treatment', 'middle organ treatment', 'small organ treatment'], {'weight' : 120})
     ]
 
-pos_a = []
-neg_a = []
+bd_list = ["1980-05-15", "1992-08-22", "1975-12-10", "1988-04-01", "1995-06-28", "1990-09-14", "1983-02-18", "1998-11-05", "1986-07-03", "1972-03-25"]
 
+age_list = []
 
-now = dt.datetime.now()
-a = [dt.datetime(2023, 11, 25, 12, 00, 00), dt.datetime(2023, 11, 5, 12, 00, 00), dt.datetime(2023, 12, 5, 12, 00, 00), dt.datetime(2023, 12, 25, 12, 00, 00)]
-
-for i in a:
-    if now - i > dt.timedelta(0):
-        pos_a.append(i)
-    elif now - i < dt.timedelta(0):
-        neg_a.append(i)
-
-print(min(pos_a))
-print(min(neg_a))
+for i in bd_list:
+    s = i.strip('-')
+    d = dt.datetime(int(s[0]), int(s[1]), int(s[2]))
+    age_list.append(str((dt.datetime.now ()- d).days/365))
+print(age_list)

@@ -24,17 +24,16 @@ def get_next_last_appointment(date_list):
     now = dt.datetime.now()
     
     for i in date_list:
-        print(i)
         if now - i < dt.timedelta(0):
             pos_a.append(i)
         elif now - i > dt.timedelta(0):
             neg_a.append(i)
 
     if pos_a == []:
-        pos_a.append(0)
+        pos_a.append("")
     elif neg_a == []:
-        neg_a.append(0)
-        
+        neg_a.append("")
+
     return min(pos_a), min(neg_a)
 
 conn = mariadb.connect(
@@ -71,18 +70,24 @@ def login():
                 print(request.json)
                 return {'result': None, 'errorMessage': "Wrong username/password"}, 409
 
-@app.route('/patients', methods=['GET', 'POST'])
+@app.route('/patients', methods=['GET'])
 def list_patients():
-    data = query("select Name, PatientID, TreatmentStatus from patient", cursor)
-  
-    for d in data:
-        q = query(f"select StartTime from examination where PatientID = {d['PatientID']} order by StartTime", cursor)
-        times = []
-        print(q)
-        for t in q:
-            times.append(t['StartTime'])
-        d['LastAppointment'], d['NextAppointment'] = get_next_last_appointment(times)
-        
-    return {f'result': data, 'errorMessage': None}
+    id = request.args.get('id')
+    if id is None:
+        data = query("select Name, PatientID, TreatmentStatus from patient", cursor)
+        for d in data:
+            q = query(f"select StartTime from examination where PatientID = {d['PatientID']} order by StartTime", cursor)
+            times = []
+            for t in q:
+                times.append(t['StartTime'])
+            d['LastAppointment'], d['NextAppointment'] = get_next_last_appointment(times)            
+        return {f'result': data, 'errorMessage': None}
+    else:
+        data = query(f"select * from patient where PatientID = '{id}'", cursor)
+        return data[0]
+
+# @app.route('/patients', methods=['GET'])
+# def list_patients():
+#     pass
 
 app.run(host="25.39.37.191")
