@@ -16,10 +16,8 @@ export class LayoutComponent {
 
   constructor(public authService: AuthService,
     private router: Router){
-      console.log(authService.getIsLoggedIn());
       if(authService.getIsLoggedIn()){
         router.navigate(['/user'])
-
       }
   }
 
