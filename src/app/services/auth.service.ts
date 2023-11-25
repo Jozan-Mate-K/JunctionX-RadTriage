@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 
 @Injectable({providedIn: 'root'})
 export class AuthService{
-    private Token: string | undefined;
 
     add( token: string){
-        this.Token = token;
+        localStorage.setItem("token", token)
     }
 
     getIsLoggedIn(): boolean{
-        return this.Token != undefined;
+        let token = localStorage.getItem("token");
+        return token != null;
     }
 
     getX(){
