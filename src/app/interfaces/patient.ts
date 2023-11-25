@@ -1,8 +1,13 @@
+import { Doctor } from "./doctor";
+
 export class Patient{
     id!: number;
     name!: string;
     status?: string;
     email!: string;
+    height?: number;
+    weight?: number;
+    doctor?: Doctor;
 }
 export class ListingPatient{
     id!: number;

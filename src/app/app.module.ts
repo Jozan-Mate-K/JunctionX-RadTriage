@@ -19,6 +19,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ProgressDialogComponent } from './dialogs/progress-dialog/progress-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PatientDialogComponent } from './dialogs/patient-dialog/patient-dialog.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 
@@ -45,7 +46,8 @@ import { PatientDialogComponent } from './dialogs/patient-dialog/patient-dialog.
     MatSidenavModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatListModule
+    MatListModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

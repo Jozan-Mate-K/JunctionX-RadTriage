@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSortModule } from '@angular/material/sort';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 const routes: Routes = [
@@ -34,7 +35,8 @@ const routes: Routes = [
     MatButtonModule,
     MatProgressSpinnerModule,
     MatSortModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCheckboxModule
   ]
 })
 export class UserModule{}
