@@ -36,6 +36,9 @@ export class LoginService {
             if(e.status == 0){
                 this.dialogService.message = "Could not connect to the server, please try again";
             }
+            if(e.status == 409){
+                this.dialogService.message = e.error.errorMessage;
+            }
             //TODO: error handling
             // if(e.status == 400){
 

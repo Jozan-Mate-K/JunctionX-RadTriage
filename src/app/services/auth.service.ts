@@ -16,4 +16,8 @@ export class AuthService{
     getX(){
         //TODO: Token query
     }
+
+    logout(): void{
+        localStorage.removeItem("token");
+    }
 }

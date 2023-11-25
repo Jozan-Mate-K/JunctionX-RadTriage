@@ -25,6 +25,7 @@
         <span></span>
         <button *ngIf="!(isHandset$ | async) && authService.getIsLoggedIn()" mat-raised-button color="accent" routerLink="user/patients">Patients</button>
         <button *ngIf="!(isHandset$ | async) && authService.getIsLoggedIn()" mat-raised-button color="accent" routerLink="user/floorplan">Floorplan</button>  
+        <button *ngIf="!(isHandset$ | async) && authService.getIsLoggedIn()" mat-raised-button color="accent" (click)="authService.logout()">Logout</button>  
       </div>
     </mat-toolbar>
 
