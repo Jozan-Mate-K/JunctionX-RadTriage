@@ -1,10 +1,19 @@
 from json import JSONEncoder
-import time
+import time, mariadb
 from flask import Flask, request
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
+
+conn = mariadb.connect(
+    user="root",
+    password="dbo",
+    host="25.52.10.125",
+    port=3306,
+    database="junction_x")
+
+cursor = conn.cursor()
 
 password = "TEST"
 username = "TEST"
