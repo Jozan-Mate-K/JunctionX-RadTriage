@@ -91,10 +91,13 @@ if __name__ == "__main__":
 conn = mariadb.connect(
     user="root",
     password="dbo",
-    host="25.39.37.191",
+    host="25.52.10.125",
     port=3306,
     database="junction_x")
 
 cursor = conn.cursor()
 
-cursor.execute("SELECT * FROM ")
+cursor.execute("SELECT * FROM doctor")
+
+for i in cursor.fetchall():
+    print(i)

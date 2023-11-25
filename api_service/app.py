@@ -7,11 +7,13 @@ app = Flask(__name__)
 CORS(app)
 
 conn = mariadb.connect(
-        user="root",
-        password="dbo",
-        host="25.39.37.191",
-        port=3306,
-        database="junction_x")
+    user="root",
+    password="dbo",
+    host="25.52.10.125",
+    port=3306,
+    database="junction_x")
+
+cursor = conn.cursor()
 
 password = "TEST"
 username = "TEST"
