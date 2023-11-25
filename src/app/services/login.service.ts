@@ -25,10 +25,9 @@ export class LoginService {
         }).subscribe(n=> {
             //TODO: token 
             this.dialogService.close()
-            console.log(n.result.data)
             if(!!n.result.token){
                 this.authService.add(n.result.token);
-                this.router.navigate(['user/']);
+                this.router.navigate(['user/patients']);
             }else{
             }
         },
@@ -36,8 +35,11 @@ export class LoginService {
             if(e.status == 0){
                 this.dialogService.message = "Could not connect to the server, please try again";
             }
-            if(e.status == 409){
+            else if(e.status == 409){
                 this.dialogService.message = e.error.errorMessage;
+            }
+            else{
+                this.dialogService.message = "Unknown error";
             }
             //TODO: error handling
             // if(e.status == 400){

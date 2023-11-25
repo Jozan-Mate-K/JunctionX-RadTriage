@@ -8,6 +8,7 @@
     <mat-nav-list>
       <a mat-list-item routerLink="user/patients" (click)="drawer.toggle()">Patients</a>
       <a mat-list-item routerLink="user/floorplan" (click)="drawer.toggle()">Floorplan</a>
+      <a mat-list-item routerLink="" (click)="drawer.toggle(); authService.logout()">Logout</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -23,9 +24,9 @@
       <div class="headerContainer">
         <span>RadTriage</span>
         <span></span>
-        <button *ngIf="!(isHandset$ | async) && authService.getIsLoggedIn()" mat-raised-button color="accent" routerLink="user/patients">Patients</button>
-        <button *ngIf="!(isHandset$ | async) && authService.getIsLoggedIn()" mat-raised-button color="accent" routerLink="user/floorplan">Floorplan</button>  
-        <button *ngIf="!(isHandset$ | async) && authService.getIsLoggedIn()" mat-raised-button color="accent" (click)="authService.logout()">Logout</button>  
+        <button *ngIf="!(isHandset$ | async) && authService.getIsLoggedIn()" mat-stroked-button color="accent" routerLink="user/patients">Patients</button>
+        <button *ngIf="!(isHandset$ | async) && authService.getIsLoggedIn()" mat-stroked-button color="accent" routerLink="user/floorplan">Floorplan</button>  
+        <button *ngIf="!(isHandset$ | async) && authService.getIsLoggedIn()" mat-stroked-button color="accent" (click)="authService.logout()" routerLink="">Logout</button>  
       </div>
     </mat-toolbar>
 
