@@ -7,7 +7,7 @@ import { FloorplanComponent } from './floorplan/floorplan.component';
 import { UserGuard } from 'src/app/guards/User.guard';
 
 const routes: Routes = [
-  {path: "", canActivate: [UserGuard], redirectTo: "patients", pathMatch: "full"},
+  {path: "", redirectTo: "patients", pathMatch: "full"},
   {path: "patients",canActivate: [UserGuard], pathMatch: 'full', component: PatientsComponent},
   {path: "floorplan",canActivate: [UserGuard], pathMatch: 'full', component: FloorplanComponent}
 
