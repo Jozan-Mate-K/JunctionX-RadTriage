@@ -1,5 +1,5 @@
 import datetime as dt
-import json, mariadb
+import json, mariadb, hashlib, sys
 
 DATE_FORMAT = r"%Y-%m-%d"
 
@@ -88,16 +88,18 @@ if __name__ == "__main__":
         Machine(5, "TrueBeam", ['large organ treatment', 'middle organ treatment', 'small organ treatment'], {'weight' : 120})
     ]
 
-conn = mariadb.connect(
-    user="root",
-    password="dbo",
-    host="25.52.10.125",
-    port=3306,
-    database="junction_x")
+pos_a = []
+neg_a = []
 
-cursor = conn.cursor()
 
-cursor.execute("SELECT * FROM doctor")
+now = dt.datetime.now()
+a = [dt.datetime(2023, 11, 25, 12, 00, 00), dt.datetime(2023, 11, 5, 12, 00, 00), dt.datetime(2023, 12, 5, 12, 00, 00), dt.datetime(2023, 12, 25, 12, 00, 00)]
 
-for i in cursor.fetchall():
-    print(i)
+for i in a:
+    if now - i > dt.timedelta(0):
+        pos_a.append(i)
+    elif now - i < dt.timedelta(0):
+        neg_a.append(i)
+
+print(min(pos_a))
+print(min(neg_a))
