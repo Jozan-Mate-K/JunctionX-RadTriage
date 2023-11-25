@@ -5,6 +5,7 @@ import { AuthService } from './auth.service';
 
 import { LoginDTO } from '../dto/login.dto';
 import { ProgressDialogService } from './progress-dialog.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Injectable({providedIn: 'root'})
 export class LoginService {
@@ -12,7 +13,9 @@ export class LoginService {
 
     constructor(private http: HttpClient,
         private authService: AuthService,
-        private dialogService: ProgressDialogService) {}
+        private dialogService: ProgressDialogService,
+        private router: Router,
+        private route: ActivatedRoute) {}
 
     login(username: string, password: string ){
         this.dialogService.openDialog({ minWidth: "400px", disableClose: true});
@@ -22,9 +25,10 @@ export class LoginService {
         }).subscribe(n=> {
             //TODO: token 
             this.dialogService.close()
-            console.log(n.result)
-            if(n.result?.data.token){
-                this.authService.add(n.result?.data.token);
+            console.log(n.result.data)
+            if(!!n.result.token){
+                this.authService.add(n.result.token);
+                this.router.navigate(['user'], {relativeTo:this.route});
             }else{
             }
         },
@@ -43,6 +47,6 @@ export class LoginService {
 }
 
 export class ResponseDto<T>{
-    result: T | undefined;
+    result!: T;
     errorMessage?: string | undefined; 
 }
