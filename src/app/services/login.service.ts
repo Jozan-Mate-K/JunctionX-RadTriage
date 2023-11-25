@@ -4,6 +4,7 @@ import { environment } from './environment';
 import { AuthService } from './auth.service';
 
 import { LoginDTO } from '../dto/login.dto';
+import { ResponseDto } from '../dto/response.dto';
 import { ProgressDialogService } from './progress-dialog.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -41,17 +42,9 @@ export class LoginService {
             else{
                 this.dialogService.message = "Unknown error";
             }
-            //TODO: error handling
-            // if(e.status == 400){
-
-            // }
         });
     }
 
     
 }
 
-export class ResponseDto<T>{
-    result!: T;
-    errorMessage?: string | undefined; 
-}

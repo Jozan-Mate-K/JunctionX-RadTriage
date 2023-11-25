@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ProgressDialogComponent } from './dialogs/progress-dialog/progress-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { PatientDialogComponent } from './dialogs/patient-dialog/patient-dialog.component';
 
 
 
@@ -28,6 +29,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     LayoutComponent,
     LoginComponent,
     ProgressDialogComponent,
+    PatientDialogComponent,
   ],
   imports: [
     BrowserModule,
