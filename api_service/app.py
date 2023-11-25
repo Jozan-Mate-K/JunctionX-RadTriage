@@ -22,7 +22,7 @@ CORS(app)
 
 @app.route('/login', methods=['POST'])
 def Login():
-    return JSONEncoder().encode( {'result': {'data': 'success', 'token': "asdalé"}, 'errorMessage': None})
+    #return JSONEncoder().encode( {'result': {'data': 'success', 'token': "asdalé"}, 'errorMessage': None})
     with engine.connect() as conn:
         q = text("SELECT password,token FROM users WHERE username = '" +
             request.json["username"] + "'")

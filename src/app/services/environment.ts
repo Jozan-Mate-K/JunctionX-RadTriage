@@ -1,4 +1,4 @@
 
 export const environment = {
-    backendURL: "http://127.0.0.1:5000"
+    backendURL: "http://25.39.37.191:5000"
 }
