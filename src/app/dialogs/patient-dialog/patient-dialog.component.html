@@ -1,1 +1,17 @@
-<p>patient-dialog works!</p>
+<div class="container">
+    <h1 *ngIf="newPatient">Add new patient</h1>
+    <h1 *ngIf="!newPatient">Manage patient</h1>
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input type="text" matInput>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="text" matInput>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="text" matInput>
+    </mat-form-field>
+    <mat-checkbox>Inpatient</mat-checkbox>
+</div>

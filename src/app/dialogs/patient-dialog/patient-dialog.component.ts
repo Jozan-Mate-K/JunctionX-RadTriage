@@ -15,9 +15,12 @@ export class PatientDialogComponent implements OnInit {
   controls = {
     name: new FormControl(),
     email: new FormControl(),
+    inpatient: new FormControl()
   }
   formGroup = new FormGroup(this.controls);
   patient?: Patient;
+
+  newPatient: boolean = false;
 
   dummyData: Patient = {
     id: 1,
@@ -34,11 +37,14 @@ export class PatientDialogComponent implements OnInit {
   }
   ngOnInit(): void {
     if(this.data.id != null){
+      this.newPatient = false;
       this.progressDialogService.openDialog({minWidth: "400px", disableClose: false})
       setTimeout(()=>{
         this.progressDialogService.close();
         this.patient = this.dummyData;
       }, 1000)
+    }else{
+      this.newPatient = true;
     }
 
     // this.patientService.getPatient(this.data.id).subscribe(n=>{
