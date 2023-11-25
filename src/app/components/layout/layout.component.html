@@ -6,7 +6,7 @@
       [ngClass]="{hidden: !(isHandset$ | async)}">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/login">Login</a>
+      <a mat-list-item routerLink="/">Link 1</a>
       <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a>
     </mat-nav-list>
@@ -18,14 +18,14 @@
         aria-label="Toggle sidenav"
         mat-icon-button
         (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+        *ngIf="(isHandset$ | async) && authService.getIsLoggedIn()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <div class="headerContainer">
         <span>JunctionXFrontend</span>
-        <button *ngIf="!(isHandset$ | async)" mat-raised-button routerLink="/login">Login</button>
-        <button *ngIf="!(isHandset$ | async)" mat-raised-button routerLink="/">Link 2</button>
-        <button *ngIf="!(isHandset$ | async)" mat-raised-button routerLink="/">Link 3</button>
+        <button *ngIf="!(isHandset$ | async) && authService.getIsLoggedIn()" mat-raised-button routerLink="/user">Link 1</button>
+        <button *ngIf="!(isHandset$ | async) && authService.getIsLoggedIn()" mat-raised-button routerLink="/user">Link 2</button>
+        <button *ngIf="!(isHandset$ | async) && authService.getIsLoggedIn()" mat-raised-button routerLink="/user">Link 3</button>
   
       </div>
     </mat-toolbar>
