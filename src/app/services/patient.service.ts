@@ -1,14 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from './environment';
-import { AuthService } from './auth.service';
 
-import { LoginDTO } from '../dto/login.dto';
 import { ResponseDto } from '../dto/response.dto';
-import { ProgressDialogService } from './progress-dialog.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { ListingPatient, Patient } from '../interfaces/patient';
-import { map } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class PatientService {
@@ -22,5 +17,14 @@ export class PatientService {
     }
     getPatient(id: number){
         return this.http.get<ResponseDto<Patient>>(this.URL, {params: {id}});
+    }
+
+    savePatient(patient: Patient){
+        //POST
+        this.http.post(this.URL, patient).subscribe();
+    }
+    saveNewPatient(patient: Partial<Patient>){
+        //PUT
+        this.http.put(this.URL, patient).subscribe();
     }
 }

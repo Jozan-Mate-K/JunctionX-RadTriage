@@ -11,24 +11,25 @@ import {
   } from '@angular/material/dialog';
 import { ProgressDialogComponent } from '../dialogs/progress-dialog/progress-dialog.component';
 import { Observable } from 'rxjs';
-import { PatientDialogComponent } from '../dialogs/patient-dialog/patient-dialog.component';
+import { AppointmentDialogComponent } from '../dialogs/appointment-dialog/appointment-dialog.component';
 
 @Injectable({providedIn:'root'})
-export class PatientDialogService{
+export class AppointmentDialogService{
 
-    private dialogRef: MatDialogRef<PatientDialogComponent, any> | undefined;
+    private dialogRef: MatDialogRef<AppointmentDialogComponent, any> | undefined;
 
     constructor(public dialog: MatDialog) { 
 
     }
 
 
+
     openDialog(id: number ){
-        this.dialogRef = this.dialog.open(PatientDialogComponent, {minWidth: "80%",  data: {id}});
+        this.dialogRef = this.dialog.open(AppointmentDialogComponent, {minWidth: "80%",  data: {id}});
     }
 
     openEmptyDialog(){
-        this.dialogRef = this.dialog.open(PatientDialogComponent, { minWidth: "80%",  data: {id: null}});
+        this.dialogRef = this.dialog.open(AppointmentDialogComponent, { minWidth: "80%",  data: {id: null}});
 
     }
 

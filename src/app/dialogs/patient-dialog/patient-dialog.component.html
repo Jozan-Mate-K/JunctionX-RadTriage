@@ -1,17 +1,76 @@
 <div class="container">
     <h1 *ngIf="newPatient">Add new patient</h1>
     <h1 *ngIf="!newPatient">Manage patient</h1>
-    <mat-form-field>
+    <h1>Contact Information</h1>
+    <mat-form-field >
         <mat-label>Name</mat-label>
-        <input type="text" matInput>
+        <input type="text" matInput [formControl]="controls.Name">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Contact number</mat-label>
+        <input type="text" matInput [formControl]="controls.ContactNumber">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Email</mat-label>
-        <input type="text" matInput>
+        <input type="text" matInput [formControl]="controls.Email">
     </mat-form-field>
     <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input type="text" matInput>
+        <mat-label>Address</mat-label>
+        <input type="text" matInput [formControl]="controls.Address">
     </mat-form-field>
-    <mat-checkbox>Inpatient</mat-checkbox>
+    <mat-form-field>
+        <mat-label>Notification preference</mat-label>
+        <input type="text" matInput [formControl]="controls.NotificationPreference">
+    </mat-form-field>
+    <span></span>
+    <h1>Medical Information</h1>
+    <mat-form-field>
+        <mat-label>Affected Organ</mat-label>
+        <input type="text"
+               placeholder="Pick one"
+               matInput
+               [formControl]="controls.AffectedOrgan"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of options" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Treatment status</mat-label>
+        <input type="text" matInput [formControl]="controls.TreatmentStatus">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Height</mat-label>
+        <input type="number" matInput [formControl]="controls.Height">
+        <span matSuffix> cm</span>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Weight</mat-label>
+        <input type="number" matInput [formControl]="controls.Weight">
+        <span matSuffix> kg</span>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Doctor</mat-label>
+        <input type="text"
+               placeholder="Pick one"
+               matInput
+               [formControl]="controls.Doctor"
+               [matAutocomplete]="doctor">
+        <mat-autocomplete #doctor="matAutocomplete">
+          <mat-option *ngFor="let doctor of doctors" [value]="doctor.Name">
+            {{doctor.Name}}
+          </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-form-field>
+            <mat-label>Birth date</mat-label>
+            <input matInput [matDatepicker]="picker" [formControl]="controls.BirthDate">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+    </mat-form-field>
+    <button mat-raised-button color="accent" (click)="save()" mat-dialog-close="">Save</button>
 </div>

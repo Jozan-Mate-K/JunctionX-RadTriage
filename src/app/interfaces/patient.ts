@@ -1,21 +1,27 @@
 import { Doctor } from "./doctor";
 
 export class Patient{
-    id!: number;
-    name!: string;
-    status?: string;
-    email!: string;
-    height?: number;
-    weight?: number;
-    doctor?: Doctor;
+    PatientID?: number;
+    Name!: string;
+    ContactNumber!: string;
+    Email!: string;
+    Address!: string;
+    AffectedOrgan!: string;
+    NotificationPreference!: string;
+    TreatmentStatus?: string;
+    Height?: number;
+    Weight?: number;
+    Doctor?: Doctor | string;
+    BirthDate!: Date | string;
+    Inpatient!: boolean;
 }
 export class ListingPatient{
-    id!: number;
-    name!: string;
-    status?: string;
-    lastAppointment?: Date;
-    nextAppointment!: Date | "Waiting" | "Not needed";
-    priority!: number;
-    inpatient!: boolean; 
+    PatientID!: number;
+    Name!: string;
+    TreatmentStatus?: string;
+    LastAppointment!: Date | string;
+    NextAppointment!: Date | string;
+    Priority?: number;
+    Inpatient?: boolean; 
 
 }

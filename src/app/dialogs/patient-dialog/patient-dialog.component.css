@@ -1,6 +1,9 @@
 .container{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    color: white;
+    max-height: 70svh;
 }
 h1{
     grid-column: span 2;

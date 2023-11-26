@@ -39,6 +39,9 @@ export class LoginService {
             else if(e.status == 409){
                 this.dialogService.message = e.error.errorMessage;
             }
+            else if(e.status == 500){
+                this.dialogService.message = "Server error";
+            }
             else{
                 this.dialogService.message = "Unknown error";
             }

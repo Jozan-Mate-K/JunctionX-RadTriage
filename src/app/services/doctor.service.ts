@@ -6,11 +6,11 @@ import { Doctor } from "../interfaces/doctor";
 
 @Injectable({providedIn: 'root'})
 export class DoctorService{
-    readonly URL = environment.backendURL + '/doctor'
+    readonly URL = environment.backendURL + '/doctor';
     constructor(private http: HttpClient){
 
     }
     getAll(){
-        return this.http.get<ResponseDto<Doctor[]>(this.URL);
+        return this.http.get<ResponseDto<Doctor[]>>(this.URL);
     }
 }
